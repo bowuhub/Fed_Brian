@@ -350,45 +350,45 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # general
     parser.add_argument('-go', "--goal", type=str, default="test",
-                        help="The goal for this experiment")  # 实验目标，等于备注
-    parser.add_argument('-data', "--dataset", type=str, default="minibal")  # 数据集
-    parser.add_argument('-nb', "--num_classes", type=int, default=4)  # 输出类别!!!
-    parser.add_argument('-m', "--model", type=str, default="cbam_binglian_lkRelu_upchan")  # model
-    parser.add_argument('-p', "--head", type=str, default="cnn")  #cnn
-    parser.add_argument('-lbs', "--batch_size", type=int, default=2)  # 批次
+                        help="The goal for this experiment")  
+    parser.add_argument('-data', "--dataset", type=str, default="minibal") 
+    parser.add_argument('-nb', "--num_classes", type=int, default=4) 
+    parser.add_argument('-m', "--model", type=str, default="cbam_binglian_lkRelu_upchan")
+    parser.add_argument('-p', "--head", type=str, default="cnn") 
+    parser.add_argument('-lbs', "--batch_size", type=int, default=2) 
     parser.add_argument('-lr', "--local_learning_rate", type=float, default=0.01,
                         help="Local learning rate")
-    parser.add_argument('-gr', "--global_rounds", type=int, default=100)  # 全局轮数，也算communication rounds
-    parser.add_argument('-ls', "--local_steps", type=int, default=1)  # 本地步数,也算局部epoch
-    parser.add_argument('-algo', "--algorithm", type=str, default="FedAvg")  # 联邦算法: 头文件里面，11行开始
+    parser.add_argument('-gr', "--global_rounds", type=int, default=100)  
+    parser.add_argument('-ls', "--local_steps", type=int, default=1)
+    parser.add_argument('-algo', "--algorithm", type=str, default="FedAvg") 
     parser.add_argument('-jr', "--join_ratio", type=float, default=1.0,
-                        help="Ratio of clients per round")  # 每轮客户比例
+                        help="Ratio of clients per round") 
     parser.add_argument('-nc', "--num_clients", type=int, default=3,
-                        help="Total number of clients")  # 客户总数
+                        help="Total number of clients")
     parser.add_argument('-dev', "--device", type=str, default="mps",
                         choices=["cpu", "cuda"])
     parser.add_argument('-did', "--device_id", type=str, default="0")
     parser.add_argument('-pv', "--prev", type=int, default=0,
-                        help="Previous Running times")  # 上一个运行时间
+                        help="Previous Running times") 
     parser.add_argument('-rjr', "--random_join_ratio", type=bool, default=False,
-                        help="Random ratio of clients per round")  # 每轮客户随机比例
+                        help="Random ratio of clients per round") 
     parser.add_argument('-t', "--times", type=int, default=1,
                         help="Running times")
     parser.add_argument('-eg', "--eval_gap", type=int, default=1,
-                        help="Rounds gap for evaluation")  # 评价轮差
+                        help="Rounds gap for evaluation") 
     parser.add_argument('-dp', "--privacy", type=bool, default=False,
-                        help="differential privacy")  # 差分隐私
+                        help="differential privacy")  
     parser.add_argument('-dps', "--dp_sigma", type=float, default=0.0)
     parser.add_argument('-sfn', "--save_folder_name", type=str, default='items')
     # practical
     parser.add_argument('-cdr', "--client_drop_rate", type=float, default=0.0,
-                        help="Rate for clients that train but drop out")  # 训练中客户离线比例
+                        help="Rate for clients that train but drop out") 
     parser.add_argument('-tsr', "--train_slow_rate", type=float, default=0.0,
-                        help="The rate for slow clients when training locally")  # 培训时慢客户比例
+                        help="The rate for slow clients when training locally") 
     parser.add_argument('-ssr', "--send_slow_rate", type=float, default=0.0,
-                        help="The rate for slow clients when sending global model")  # 发送全局模型时速度慢的客户端的速率
+                        help="The rate for slow clients when sending global model") 
     parser.add_argument('-ts', "--time_select", type=bool, default=False,
-                        help="Whether to group and select clients at each round according to time cost")  # 是否根据时间成本对每轮客户进行分组和选择
+                        help="Whether to group and select clients at each round according to time cost") 
     parser.add_argument('-tth', "--time_threthold", type=float, default=10000,
                         help="The threthold for droping slow clients")
     # pFedMe / PerAvg / FedProx / FedAMP / FedPHP
